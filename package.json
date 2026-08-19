@@ -1,0 +1,27 @@
+{
+  "name": "agenda-for-canvas",
+  "version": "1.0.0",
+  "description": "Various tools to build and test the extension.",
+  "homepage": "https://github.com/simplyKatt/Agenda-for-Canvas",
+  "bugs": {
+    "url": "https://github.com/simplyKatt/Agenda-for-Canvas/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simplyKatt/Agenda-for-Canvas.git"
+  },
+  "license": "MPL-2.0",
+  "author": {
+    "name": "Katt",
+    "email": "simplykatt@nirmini.dev",
+    "url": "https://github.com/simplyKatt"
+  },
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
