@@ -1,6 +1,8 @@
 {
-    "name": "agenda-for-canvas",
+    "name": "__MSG_extensionName__",
     "version": "1.0.0",
     "manifest_version": 3,
-    "default_locale": "en"
+    "default_locale": "en",
+    "description": "__MSG_extensionDescription__",
+    "author": "__MSG_authorName__"
 }
