@@ -11,3 +11,4 @@ A simple (and open-source) FF/Chrome extension that lets students see informatio
 - Theme System?
 - Streaks System
 - Additional features for Teachers/TA's
+- GPA Calculator
