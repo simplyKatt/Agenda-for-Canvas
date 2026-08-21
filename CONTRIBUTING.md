@@ -6,7 +6,7 @@ Welcome to Agenda for Canvas 👋
 This file covers the expectations of contributors, policies and proceedures for contributing, and other general information.
 A failure to uphold these standards can result in your blacklist from contributing when/if needed.
 
-Exact rules/expectations are split into different categories. Find your place on the Table of Contents below and then **carefully** read the standards for your class. The Maintainer(s) may enforce different standards when and if needed.
+Exact rules/expectations are split into different categories. Find your place on the Table of Contents below and then **carefully** read the standards for your class. The project Maintainer (simplyKatt/Katt) may enforce different standards when and if needed.
 
 * New Extension Dev - Getting started with extension development
 * Academic Researcher - Studying extension internals and architecture
