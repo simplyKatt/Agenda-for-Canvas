@@ -1,0 +1,3 @@
+# Canvas API Module
+
+This module handles all Canvas API interactions and publishes various interfaces to create and respond to API requests/data.
