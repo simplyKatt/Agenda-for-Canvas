@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MPL-2.0
 
 const fs = require('node:fs');
+const os = require('node:os');
 const path = require('node:path');
-const { exit } = require('node:process');
 
 const args = process.argv.slice(2);
 const platformArg = args[0];
@@ -14,10 +14,24 @@ function handleArguments() {
     const build_args = buildOptions;
 
     if (plat_args == "help" || plat_args == "--help" || plat_args == "h" || plat_args == "-h") {
-        console.log("Agenda for Canvas - Build Tools")
-        console.log("===============================")
+        console.log("Agenda for Canvas - Build Tools Help")
+        console.log("========================================================================")
+        console.log("Description                | Command")
+        console.log("Help Command               | npm run build help")
+        console.log("Build Tool Version Command | npm run build version")
+        console.log("Build Command              | npm run build [FireFox/FF|Chrome/CH|All|None] [Build Options]");
+        process.exit(0);
+    };
 
-        process.exit(0); //Anything else might be flagged as an error.
+    if (plat_args == "version" || plat_args == "--version" || plat_args == "v" || plat_args == "-v") {
+        let build_utils_version = require('../../package.json').version;
+        console.log("Agenda for Canvas - Build Tool Versions")
+        console.log("========================================================================");
+        console.log("Description                         | Data");
+        console.log("------------------------------------|----------------------");
+        console.log("The version of the software tool    | Tool Version",build_utils_version);
+        console.log("The version of the Operating System | OS Version",os.version());
+        process.exit(0);
     };
 
     let Target_Platform
@@ -54,8 +68,11 @@ function handleArguments() {
     };
 };
 
+handleArguments();
+
 // EVERYTHING BELOW THIS POINT IS AI-GENERATED AS A REFERENCE AND WILL BE REDONE
 
+/*
 const sourceBase = path.resolve(path.join(__dirname, '..'));
 const distBase = path.join(sourceBase, 'dist');
 
@@ -137,3 +154,4 @@ function main() {
 }
 
 main();
+*/
