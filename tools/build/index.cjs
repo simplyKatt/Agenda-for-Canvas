@@ -62,6 +62,26 @@ function handleArguments() {
     };
     
     // Need to take BuildOptions[n] -> BuildOptions_String and then split/sort based on the words "include=" and "exclude=".
+    buildOptions_Split=build_args.toString().split(",", 3); //Don't put "," in a dir name unless you want to break something.
+    console.log(buildOptions_Split);
+    let include_pos, exclude_pos, data_pos;
+    let include_dat, exclude_dat, data_content;
+    let len = buildOptions_String.length;
+    for (let i = 0; i < len; i++) {
+      if (buildOptions_Split[i].find("include=") === (null || false) || buildOptions_Split[i].find("include") === (null || false)) include_pos = null;
+      if (buildOptions_Split[i].find("exclude=") === (null || false) || buildOptions_Split[i].find("exclude") === (null || false)) exclude_pos = null;
+      if (buildOptions_Split[i].find("data=") ===  (null || false) || buildOptions_Split[i].find("data") === (null || false)) data_pos = null;
+    }
+    if (include_pos != null) {
+
+    }
+    if (exclude_pos != null) {
+        
+    }
+    if (data_pos != null) {
+        
+    }
+
 
     return {
         "Target_Platform":Target_Platform,
@@ -71,7 +91,7 @@ function handleArguments() {
 
 handleArguments();
 
-// EVERYTHING BELOW THIS POINT IS AI-GENERATED AS A REFERENCE AND WILL BE REDONE
+// EVERYTHING BELOW THIS POINT IS AI-GENERATED AS A REFERENCE AND WILL BE REMOVED. (Template Code)
 
 /*
 const sourceBase = path.resolve(path.join(__dirname, '..'));
