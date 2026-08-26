@@ -61,6 +61,7 @@ function handleArguments() {
             break;
     };
     
+    // Need to take BuildOptions[n] -> BuildOptions_String and then split/sort based on the words "include=" and "exclude=".
 
     return {
         "Target_Platform":Target_Platform,
