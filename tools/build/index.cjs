@@ -69,17 +69,32 @@ function handleArguments() {
     let len = buildOptions_String.length;
     for (let i = 0; i < len; i++) {
       if (buildOptions_Split[i].find("include=") === (null || false) || buildOptions_Split[i].find("include") === (null || false)) include_pos = null;
+      else {
+        if (typeof(buildOptions_Split[i].find("include")) === Array) {
+            throw new Error("'include' was found more than once, please double-check your parameters.")
+        }
+        else {
+            
+        };
+      };
       if (buildOptions_Split[i].find("exclude=") === (null || false) || buildOptions_Split[i].find("exclude") === (null || false)) exclude_pos = null;
+      else {
+        
+      };
       if (buildOptions_Split[i].find("data=") ===  (null || false) || buildOptions_Split[i].find("data") === (null || false)) data_pos = null;
+      else {
+        
+      };
     }
     if (include_pos != null) {
-
+        //
+        
     }
     if (exclude_pos != null) {
-        
+        //
     }
     if (data_pos != null) {
-        
+        //
     }
 
 
