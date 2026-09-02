@@ -5,6 +5,7 @@ const os = require('node:os');
 const path = require('node:path');
 
 const args = process.argv.slice(2);
+console.log("Total Args",args);
 const platformArg = args[0];
 const buildOptions = args.slice(1);
 
@@ -12,12 +13,13 @@ function handleArguments() {
     const all_args = args;
     const plat_args = platformArg;
     const build_args = buildOptions;
+    console.log("Build_args", build_args);
 
     if (plat_args == "help" || plat_args == "--help" || plat_args == "h" || plat_args == "-h") {
         console.log("Agenda for Canvas - Build Tools Help")
         console.log("========================================================================")
         console.log("Description                | Command")
-        console.log("Help Command               | npm run build help")
+        console.log("General Help Command       | npm run build help") //ToDo: Add specific help pages like npm run build help buildoptions
         console.log("Build Tool Version Command | npm run build version")
         console.log("Build Command              | npm run build [FireFox/FF|Chrome/CH|All|None] [Build Options]");
         process.exit(0);
@@ -62,29 +64,38 @@ function handleArguments() {
     };
     
     // Need to take BuildOptions[n] -> BuildOptions_String and then split/sort based on the words "include=" and "exclude=".
-    buildOptions_Split=build_args.toString().split(",", 3); //Don't put "," in a dir name unless you want to break something.
+    buildOptions_Split=build_args.toString().split(","); //Don't put "," in a dir name unless you want to break something.
     console.log(buildOptions_Split);
     let include_pos, exclude_pos, data_pos;
     let include_dat, exclude_dat, data_content;
-    let len = buildOptions_String.length;
+    let len = buildOptions_Split.length;
+    console.log("Split BO:",buildOptions_Split);
     for (let i = 0; i < len; i++) {
-      if (buildOptions_Split[i].find("include=") === (null || false) || buildOptions_Split[i].find("include") === (null || false)) include_pos = null;
-      else {
-        if (typeof(buildOptions_Split[i].find("include")) === Array) {
-            throw new Error("'include' was found more than once, please double-check your parameters.")
-        }
+        var search_content = buildOptions_Split[i];
+        if (!search_content.includes("include")) include_pos = null;
         else {
-            
+            include_pos = search_content.indexOf("include")
+            if (search_content.indexOf('include', include_pos + 1) !== -1) {
+                include_pos = null;
+                throw new Error("[Btools|ArgsParse]: One or more duplicate include arguments were found when parsing arguments.")
+            }
         };
-      };
-      if (buildOptions_Split[i].find("exclude=") === (null || false) || buildOptions_Split[i].find("exclude") === (null || false)) exclude_pos = null;
-      else {
-        
-      };
-      if (buildOptions_Split[i].find("data=") ===  (null || false) || buildOptions_Split[i].find("data") === (null || false)) data_pos = null;
-      else {
-        
-      };
+        if (!search_content.includes("exclude")) exclude_pos = null;
+        else {
+            exclude_pos = search_content.indexOf("exclude")
+            if (search_content.indexOf('exclude', exclude_pos + 1) !== -1) {
+                exclude_pos = null;
+                throw new Error("[Btools|ArgsParse]: One or more duplicate exclude arguments were found when parsing arguments.")
+            }
+        };
+        if (!search_content.includes("data")) data_pos = null;
+        else {
+            data_pos = search_content.indexOf("data")
+            if (search_content.indexOf('data', data_pos + 1) !== -1) {
+                data_pos = null;
+                throw new Error("[Btools|ArgsParse]: One or more duplicate data arguments were found when parsing arguments.")
+            }
+        };
     }
     if (include_pos != null) {
         //
@@ -92,9 +103,11 @@ function handleArguments() {
     }
     if (exclude_pos != null) {
         //
+
     }
     if (data_pos != null) {
         //
+
     }
 
 
