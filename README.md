@@ -12,3 +12,6 @@ A simple (and open-source) FF/Chrome extension that lets students see informatio
 - Streaks System
 - Additional features for Teachers/TA's
 - GPA Calculator
+
+>[!NOTE]
+>Should a folder have it's own LICENSE file, that LICENSE file takes precedence over the master LICENSE file unless the two files are identical, at which point the master LICENSE file remains with precedence. Modules that are imported will also feature a `COPYRIGHT.md` file where it is best suited as determined by the project maintainer(s).

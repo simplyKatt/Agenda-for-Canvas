@@ -70,8 +70,14 @@ function handleArguments() {
     let include_dat, exclude_dat, data_content;
     let len = buildOptions_Split.length;
     console.log("Split BO:",buildOptions_Split);
+    try {
+        if (len < 2) throw new Error("Expected build options but none were found!")
     for (let i = 0; i < len; i++) {
-        var search_content = buildOptions_Split[i];
+        var search_content = String(buildOptions_Split[i]);
+        search_content=search_content.replaceAll("[", "");
+        search_content=search_content.replaceAll("]", "");
+        search_content=search_content.replaceAll("=", "");
+        
         if (!search_content.includes("include")) include_pos = null;
         else {
             include_pos = search_content.indexOf("include")
@@ -109,7 +115,9 @@ function handleArguments() {
         //
 
     }
-
+    } catch (err) {
+        console.log(`[BTools|ArgsParse]: An error was encountered:\n${err}`);
+    }
 
     return {
         "Target_Platform":Target_Platform,
