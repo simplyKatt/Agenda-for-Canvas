@@ -34,10 +34,9 @@ export function saveStorage(act, type, key, value) {
     }
     try {
     var safe_key = JSON.parse(key.replace(/[^a-zA-Z0-9\-_ ]/g, ''));
-    var safe_val = JSON.parse(value.replace(/[^a-zA-Z0-9\-_:{}\[\] ]/g, ''));
-    if (safe_key === "") console.error(`[Agenda-for-Canvas]: For Developers: The key "${key}" is invalid. Keys should only use characters, numbers, dashes, or underscores/spaces.`)
-    if (safe_val === "") console.error(`[Agenda-for-Canvas]: For Developers: The value "${value}" is invalid. Values should only use characters, numbers, dashes, or underscores/spaces.`)
-    if (safe_key.slice(0,1) == ("-"||"_"||" ")) console.error("[Agenda-for-Canvas]: For Developers: Keys may not start nor end with either a dash, underscore, or space.")
+    var safe_val = JSON.parse(value);
+    if (safe_key === "") console.error(`[Agenda-for-Canvas]: For Developers: The key "${key}" is invalid. Keys should only use characters, numbers, dashes, or underscores/spaces.`);
+    if (safe_key.slice(0,1) == ("-"||"_"||" ")) console.error("[Agenda-for-Canvas]: For Developers: Keys may not start nor end with either a dash, underscore, or space.");
     } catch (e) {
         console.error(e);
     }
